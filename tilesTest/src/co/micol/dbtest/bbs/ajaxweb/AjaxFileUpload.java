@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-@WebServlet("/fileUpload")
+@WebServlet("/fileUpload2")
 public class AjaxFileUpload extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import co.micol.dbtest.bbs.web.Bulletin;
 import co.micol.dbtest.bbs.web.BulletinForm;
 import co.micol.dbtest.bbs.web.BulletinList;
+import co.micol.dbtest.bbs.web.BulletinUpload;
 import co.micol.dbtest.member.web.MemberJoin;
 import co.micol.dbtest.member.web.MemberJoinForm;
 import co.micol.dbtest.member.web.MemberLogin;
@@ -58,6 +59,7 @@ public class FrontController extends HttpServlet {
 		map.put("/bbs.do", new Bulletin());
 		map.put("/bbsList.do", new BulletinList());
 		map.put("/bbsForm.do", new BulletinForm());
+		map.put("/bbsUpload.do", new BulletinUpload());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)

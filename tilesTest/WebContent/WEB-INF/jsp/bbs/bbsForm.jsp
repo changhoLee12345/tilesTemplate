@@ -18,8 +18,10 @@
 </head>
 
 <body>
-	<form action="">
+	<form action="bbsUpload.do" method="post">
+		<input type="text" name="title" id="title">
 		<textarea name="content" id="content" cols="30" rows="10"></textarea>
+		<input type="text" name="writer" id="writer">
 	</form>
 </body>
 

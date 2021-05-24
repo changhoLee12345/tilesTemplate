@@ -7,8 +7,8 @@ import co.micol.dbtest.notice.vo.NoticeVO;
 
 public interface BulletinService {
 	List<BulletinVO> bulletinSelectList();
-	BulletinVO bulletinSelect(NoticeVO vo);
-	int insertBulletin(NoticeVO vo);
-	int updateBulletin(NoticeVO vo);
-	int deleteBulletin(NoticeVO vo);
+	BulletinVO bulletinSelect(BulletinVO vo);
+	int insertBulletin(BulletinVO vo);
+	int updateBulletin(BulletinVO vo);
+	int deleteBulletin(BulletinVO vo);
 }

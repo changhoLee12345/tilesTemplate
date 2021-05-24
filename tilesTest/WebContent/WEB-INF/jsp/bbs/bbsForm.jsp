@@ -22,6 +22,7 @@
 		<input type="text" name="title" id="title">
 		<textarea name="content" id="content" cols="30" rows="10"></textarea>
 		<input type="text" name="writer" id="writer">
+		<input type="submit" value="upload">
 	</form>
 </body>
 

@@ -24,7 +24,7 @@
 	<div>
 		<h1>게시판 목록</h1>
 	</div>
-	<form id="frm" name="frm" action="bbs.do" method="post">
+	<form id="frm" name="frm" action="bulletinSelect.do" method="post">
 		<input type="hidden" id="id" name="id">
 	</form>
 	<div>
@@ -36,8 +36,8 @@
 				<th width="100">작성일자</th>
 				<th width="100">조회수</th>
 			</tr>
-			<c:forEach var="vo" items="${bbsList }">
-				<tr onclick="formSubmit(${vo.id})">
+			<c:forEach var="vo" items="${list }">
+				<tr onclick="formSubmit(${vo.bbsId})">
 					<td align="center">${vo.bbsId }</td>
 					<td align="center">${vo.bbsTitle }</td>
 					<td align="center">${vo.bbsWriter }</td>
@@ -49,8 +49,8 @@
 	</div><br />
 	<div>
 		<button type="button" onClick="location.href='main.do'">홈</button>&nbsp;&nbsp;&nbsp;
-		<c:if test="${id eq 'admin' }">
-			<button type="button" onClick="location.href='noticeForm.do'">등록</button>
+		<c:if test="${not empty id }">
+			<button type="button" onClick="location.href='bulletinForm.do'">등록</button>
 		</c:if>
 	</div>
 </div>

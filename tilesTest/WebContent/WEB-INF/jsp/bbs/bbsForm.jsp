@@ -18,11 +18,25 @@
 </head>
 
 <body>
-	<form action="bbsUpload.do" method="post">
-		<input type="text" name="title" id="title">
-		<textarea name="content" id="content" cols="30" rows="10"></textarea>
-		<input type="text" name="writer" id="writer">
-		<input type="submit" value="upload">
+	<form action="bulletinInsert.do" method="post">
+		<input type="hidden" name="writer" id="writer" value="${id }">
+		<table border="1">
+			<tr>
+				<th>제목:</th>
+				<td>
+					<input type="text" name="title" id="title">
+				</td>
+			</tr>
+			<tr>
+				<td>내용:</td>
+				<td>
+					<textarea name="content" id="content" cols="60" rows="20"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"><input type="submit" value="upload"></td>
+			</tr>
+		</table>
 	</form>
 </body>
 

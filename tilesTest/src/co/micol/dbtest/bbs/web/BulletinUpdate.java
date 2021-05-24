@@ -10,12 +10,24 @@ import co.micol.dbtest.bbs.serviceImpl.BulletinServiceImpl;
 import co.micol.dbtest.bbs.vo.BulletinVO;
 import co.micol.dbtest.common.DbCommand;
 
-public class BulletinList implements DbCommand {
+public class BulletinUpdate implements DbCommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		String id = request.getParameter("id");
+
+		BulletinVO vo = new BulletinVO();
+		vo.setBbsTitle(title);
+		vo.setBbsContent(content);
+		vo.setBbsId(Integer.parseInt(id));
+
 		BulletinService service = new BulletinServiceImpl();
+		service.updateBulletin(vo);
+
+		service = new BulletinServiceImpl();
 		List<BulletinVO> list = service.bulletinSelectList();
 
 		request.setAttribute("list", list);

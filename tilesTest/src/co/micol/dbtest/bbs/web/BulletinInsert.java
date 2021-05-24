@@ -8,7 +8,7 @@ import co.micol.dbtest.bbs.serviceImpl.BulletinServiceImpl;
 import co.micol.dbtest.bbs.vo.BulletinVO;
 import co.micol.dbtest.common.DbCommand;
 
-public class BulletinUpload implements DbCommand {
+public class BulletinInsert implements DbCommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {

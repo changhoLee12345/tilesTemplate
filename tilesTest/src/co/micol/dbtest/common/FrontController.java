@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import co.micol.dbtest.bbs.web.Bulletin;
 import co.micol.dbtest.bbs.web.BulletinForm;
 import co.micol.dbtest.bbs.web.BulletinList;
-import co.micol.dbtest.bbs.web.BulletinUpload;
+import co.micol.dbtest.bbs.web.BulletinInsert;
 import co.micol.dbtest.member.web.MemberJoin;
 import co.micol.dbtest.member.web.MemberJoinForm;
 import co.micol.dbtest.member.web.MemberLogin;
@@ -56,10 +56,10 @@ public class FrontController extends HttpServlet {
 		map.put("/memberJoinForm.do", new MemberJoinForm()); // 회원가입 폼 호출
 		map.put("/memberJoin.do", new MemberJoin()); // 회원가입 처리
 
-		map.put("/bbs.do", new Bulletin());
-		map.put("/bbsList.do", new BulletinList());
-		map.put("/bbsForm.do", new BulletinForm());
-		map.put("/bbsUpload.do", new BulletinUpload());
+		map.put("/bulletin.do", new Bulletin());
+		map.put("/bulletinList.do", new BulletinList());
+		map.put("/bulletinForm.do", new BulletinForm());
+		map.put("/bulletinInsert.do", new BulletinInsert());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)

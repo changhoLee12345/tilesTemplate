@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.micol.dbtest.common.DbCommand;
+import co.micol.dbtest.common.Paging;
 import co.micol.dbtest.notice.serviceImpl.NoticeServiceImpl;
 import co.micol.dbtest.notice.vo.NoticeVO;
 
@@ -17,9 +18,17 @@ public class NoticeList implements DbCommand {
 		// TODO 공지사항 전체보기
 		NoticeServiceImpl dao = new NoticeServiceImpl();
 		List<NoticeVO> list = new ArrayList<NoticeVO>();
-		
+
 		list = dao.noticeSelectList();
 		request.setAttribute("notices", list);
+
+		Paging paging = new Paging();
+		paging.setPageNo(1);
+		paging.setPageSize(10);
+		paging.setTotalCount(list.size());
+
+		request.setAttribute("paging", paging);
+
 		return "notice/noticeList.tiles";
 	}
 

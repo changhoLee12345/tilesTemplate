@@ -126,6 +126,48 @@ public class NoticeServiceImpl extends DAO implements NoticeService {
 		return n;
 	}
 
+	public List<NoticeVO> selectNoticeListPaging(int page) {
+		String sql = "SELECT b.rn\r\n"//
+				+ "      ,b.*\r\n"//
+				+ "FROM   (SELECT ROWNUM rn\r\n"//
+				+ "              ,a.*\r\n"//
+				+ "        FROM   (SELECT *\r\n"//
+				+ "                FROM   notice\r\n"//
+				+ "                ORDER  BY 1) a) b\r\n"//
+				+ "WHERE  b.rn BETWEEN ? AND ?";
+
+		List<NoticeVO> list = new ArrayList<>();
+		int firstCnt = 0, lastCnt = 0;
+
+		firstCnt = (page - 1) * 10 + 1;
+		lastCnt = (page * 10);
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, firstCnt);
+			psmt.setInt(2, lastCnt);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				NoticeVO vo = new NoticeVO();
+				vo.setContent(rs.getString("content"));
+				vo.setHit(rs.getInt("hit"));
+				vo.setId(rs.getInt("id"));
+				vo.setTitle(rs.getString("title"));
+				vo.setWdate(rs.getDate("wdate"));
+
+				list.add(vo);
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+
+		return list;
+
+	}
+
 	private void close() {
 		try {
 			if (rs != null)

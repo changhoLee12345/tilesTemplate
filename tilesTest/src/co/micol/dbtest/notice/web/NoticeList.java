@@ -22,13 +22,6 @@ public class NoticeList implements DbCommand {
 		list = dao.noticeSelectList();
 		request.setAttribute("notices", list);
 
-		Paging paging = new Paging();
-		paging.setPageNo(1);
-		paging.setPageSize(10);
-		paging.setTotalCount(list.size());
-
-		request.setAttribute("paging", paging);
-
 		return "notice/noticeList.tiles";
 	}
 

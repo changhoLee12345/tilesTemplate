@@ -1,25 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-<style type="text/css">
-<!--
-tr.row:hover {
-	background-color: lightyellow;
-}
--->
-</style>
-
-<script type="text/javascript">
-	function formSubmit(id) {
-		frm.id.value = id;
-		frm.submit();
+pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script>
+	function goPage(page) {
+		location.href = "noticeListPaging.do?page=" + page;
 	}
 </script>
 
-<div>
-	<br />
-</div>
 <div align="center">
 	<div>
 		<h1>공지사항 목록</h1>
@@ -48,20 +35,28 @@ tr.row:hover {
 	<br />
 	<div>
 		<button type="button" onClick="location.href='main.do'">홈</button>
-		&nbsp;&nbsp;&nbsp;
 		<c:if test="${id eq 'admin' }">
 			<button type="button" onClick="location.href='noticeForm.do'">등록</button>
 		</c:if>
 	</div>
 	<div>
-		<jsp:include page="../common/paging.jsp" flush="true">
-			<jsp:param name="firstPageNo" value="${paging.firstPageNo}" />
-			<jsp:param name="prevPageNo" value="${paging.prevPageNo}" />
-			<jsp:param name="startPageNo" value="${paging.startPageNo}" />
-			<jsp:param name="pageNo" value="${paging.pageNo}" />
-			<jsp:param name="endPageNo" value="${paging.endPageNo}" />
-			<jsp:param name="nextPageNo" value="${paging.nextPageNo}" />
-			<jsp:param name="finalPageNo" value="${paging.finalPageNo}" />
-		</jsp:include>
+		<div class="paginate">
+			<a href="javascript:goPage(${paging.firstPageNo})" class="first">처음 페이지</a>
+			<a href="javascript:goPage(${paging.prevPageNo})" class="prev">이전 페이지</a>
+			<span>
+				<c:forEach var="i" begin="${paging.startPageNo}" end="${paging.endPageNo}" step="1">
+					<c:choose>
+						<c:when test="${i eq paging.pageNo}">
+							<a href="javascript:goPage(${i})" class="choice">${i}</a>
+						</c:when>
+						<c:otherwise>
+							<a href="javascript:goPage(${i})">${i}</a>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+			</span>
+			<a href="javascript:goPage(${paging.nextPageNo})" class="next">다음 페이지</a>
+			<a href="javascript:goPage(${paging.finalPageNo})" class="last">마지막 페이지</a>
+		</div>
 	</div>
 </div>

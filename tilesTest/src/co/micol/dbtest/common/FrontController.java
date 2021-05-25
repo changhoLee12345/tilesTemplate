@@ -27,6 +27,7 @@ import co.micol.dbtest.notice.ajaxweb.NoticeClient;
 import co.micol.dbtest.notice.web.Notice;
 import co.micol.dbtest.notice.web.NoticeForm;
 import co.micol.dbtest.notice.web.NoticeList;
+import co.micol.dbtest.notice.web.NoticeListPaging;
 import co.micol.dbtest.notice.web.NoticeWrite;
 
 //@WebServlet("/FrontController")
@@ -42,6 +43,7 @@ public class FrontController extends HttpServlet {
 		// TODO 호출명 저장소
 		map.put("/main.do", new MainPage()); // 시작페이지
 		map.put("/noticeList.do", new NoticeList()); // 공지사항 목록
+		map.put("/noticeListPaging.do", new NoticeListPaging()); // 공지사항 목록
 		map.put("/notice.do", new Notice()); // 공지사항 내용보기
 		map.put("/noticeForm.do", new NoticeForm()); // 공지사항 등록 폼 호출
 		map.put("/noticeWrite.do", new NoticeWrite()); // 공지사항 저장

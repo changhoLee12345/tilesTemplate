@@ -25,7 +25,7 @@ public class BulletinInsert implements DbCommand {
 		BulletinService service = new BulletinServiceImpl();
 		service.insertBulletin(vo);
 
-		return "main/main.tiles";
+		return "/bulletinList.do";
 	}
 
 }

@@ -14,15 +14,16 @@ public class BulletinSelect implements DbCommand {
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		String id = request.getParameter("id");
+		System.out.println("cont: " + id);
 
 		BulletinVO vo = new BulletinVO();
 		vo.setBbsId(Integer.parseInt(id));
 
 		BulletinService service = new BulletinServiceImpl();
 		vo = service.bulletinSelect(vo);
-		
+
 		request.setAttribute("bulletin", vo);
-		
+
 		return "bbs/bulletin.tiles";
 	}
 

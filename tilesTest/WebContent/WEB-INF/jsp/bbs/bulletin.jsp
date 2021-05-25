@@ -22,6 +22,25 @@
 					height: "700"
 				})
 			}
+
+			$('#delBtn').click(function (e) {
+				e.preventDefault();
+				$.ajax({
+					url: 'bulletinDelete.do',
+					data: {
+						id: $('input[name="id"]').val()
+					},
+					success: function (result) {
+						console.log(result);
+						location.href = 'bulletinList.do';
+					},
+					error: function (err) {
+						console.log(err);
+						alert('처리중 에러발생');
+						location.href = 'bulletinList.do';
+					}
+				});
+			})
 		});
 	</script>
 </head>
@@ -55,6 +74,9 @@
 				<td align="center" colspan="2">
 					<c:if test="${bulletin.bbsWriter eq id }">
 						<input type="submit" value="수정">
+					</c:if>
+					<c:if test="${bulletin.bbsWriter eq id }">
+						<button type="button" id="delBtn">삭제</button>
 					</c:if>
 					<button type="button" onclick="location.href='bulletinList.do'">목록</button>
 				</td>

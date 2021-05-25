@@ -23,6 +23,15 @@
 				<li class="nav-item"><a class="nav-link" href="memberLoginForm.do">로그인</a></li>
 				<li class="nav-item"><a class="nav-link" href="memberJoinForm.do">회원가입</a></li>
 			</c:if>
+
+			<c:choose>
+				<c:when test="${empty id }">
+					<li class="nav-item"><a class="nav-link" href="#" style="color: yellow;">(Guest)</a></li>
+				</c:when>
+				<c:otherwise>
+					<li class="nav-item"><a class="nav-link" href="#" style="color: yellow;">(${id })</a></li>
+				</c:otherwise>
+			</c:choose>
 		</ul>
 	</div>
 </nav>

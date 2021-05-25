@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.micol.dbtest.bbs.web.Bulletin;
+import co.micol.dbtest.bbs.web.BulletinDelete;
 import co.micol.dbtest.bbs.web.BulletinForm;
 import co.micol.dbtest.bbs.web.BulletinList;
 import co.micol.dbtest.bbs.web.BulletinSelect;
@@ -66,6 +67,7 @@ public class FrontController extends HttpServlet {
 		map.put("/bulletinInsert.do", new BulletinInsert());
 		map.put("/bulletinSelect.do", new BulletinSelect());
 		map.put("/bulletinUpdate.do", new BulletinUpdate());
+		map.put("/bulletinDelete.do", new BulletinDelete());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)

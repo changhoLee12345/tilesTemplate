@@ -26,6 +26,8 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 @WebServlet("/fileUpload")
 public class FileUpload extends HttpServlet {
 
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -53,6 +55,7 @@ public class FileUpload extends HttpServlet {
 			String name = (String) en.nextElement();
 			String fileName = multi.getFilesystemName(name);
 			fileN = fileName;
+			System.out.println("author: " + author + ", title: " + title);
 			System.out.println("name: " + name + ", fileName: " + fileName);
 		}
 

@@ -102,7 +102,7 @@ public class FileUpload extends HttpServlet {
 					out.close();
 					printWriter.close();
 
-				}
+				} // end if
 			}
 		}
 	}

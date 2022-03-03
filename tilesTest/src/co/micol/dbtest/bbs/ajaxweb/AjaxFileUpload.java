@@ -69,6 +69,7 @@ public class AjaxFileUpload extends HttpServlet {
 			// 업로드시 메시지 출력
 			printWriter.println("{\"filename\" : \"" + fileName + "\", \"uploaded\" : 1, \"url\":\"" + fileUrl + "\"}");
 			printWriter.flush();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

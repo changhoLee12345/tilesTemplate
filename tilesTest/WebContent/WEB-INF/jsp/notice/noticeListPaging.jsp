@@ -47,7 +47,7 @@ pageEncoding="UTF-8"%>
 				<c:forEach var="i" begin="${paging.startPageNo}" end="${paging.endPageNo}" step="1">
 					<c:choose>
 						<c:when test="${i eq paging.pageNo}">
-							<a href="javascript:goPage(${i})" class="choice">${i}</a>
+							<a href="javascript:goPage(${i})" class="focus">${i}</a>
 						</c:when>
 						<c:otherwise>
 							<a href="javascript:goPage(${i})">${i}</a>

@@ -5,9 +5,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import co.micol.dbtest.common.DAO;
-import co.micol.dbtest.member.service.MemberService;
-import co.micol.dbtest.member.vo.MemberVO;
+import co.edu.common.DAO;
+import co.edu.member.service.MemberService;
+import co.edu.member.vo.MemberVO;
+
 
 public class MemberServiceImpl extends DAO implements MemberService {
 	private PreparedStatement psmt;

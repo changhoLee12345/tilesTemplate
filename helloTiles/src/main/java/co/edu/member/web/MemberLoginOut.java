@@ -12,7 +12,7 @@ public class MemberLoginOut implements Control {
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO 로그아웃 처리
 		HttpSession session = request.getSession();
-		session.invalidate();  //세션을 삭제한다
+		session.invalidate(); // 세션을 삭제한다
 		return "main.do";
 	}
 

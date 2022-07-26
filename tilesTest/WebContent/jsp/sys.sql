@@ -1,6 +1,7 @@
 SELECT *
 FROM   tab;
 
+ALTER session SET "_ORACLE_SCRIPT" = TRUE;
 CREATE USER bbs identified BY bbs;
 
 grant CONNECT, RESOURCE TO bbs;

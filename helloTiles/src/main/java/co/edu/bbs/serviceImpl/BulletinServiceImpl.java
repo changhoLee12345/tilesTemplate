@@ -8,8 +8,9 @@ import java.util.List;
 
 import co.edu.bbs.service.BulletinService;
 import co.edu.bbs.vo.BulletinVO;
+import co.edu.common.DAO;
 
-public class BulletinServiceImpl implements BulletinService {
+public class BulletinServiceImpl extends DAO implements BulletinService {
 	PreparedStatement psmt;
 	ResultSet rs;
 
